@@ -684,25 +684,137 @@ li {
 
 ![position-summary](./img/position-summary.png)
 
+> 标准流：让盒子上下排列、或者左右排列
+
+> 浮动：可以让多个块级元素一行显示，左右对齐盒子，浮动的盒子按照左右排序
+
+> 定位：层叠的概念，让多个盒子前后层叠显示
 
 
-## Day 8
+
+## Day 8 CSS高级技巧
+
+### 1 元素的显示与隐藏
+
+> 让元素消失或则显现，常见：小广告
+
+#### 1.1 display
+
+隐藏后不占位置
+
+```css
+display: none | block;
+```
+
+#### 1.2 visibility
+
+隐藏后占位置
+
+```css
+visibility: visible | hidden;
+```
+
+#### 1.3 overflow
+
+超出/溢出部分的隐藏于显示
+
+```css
+overflow: visible | auto | hidden | scroll;
+```
 
 
 
-## Day 9
+### 2 CSS用户界面样式
+
+#### 2.1 鼠标样式cursor
+
+![cursor](./img/cursor.png)
+
+#### 2.2 轮廓线outline
+
+> 由于各浏览器轮廓线不相同，日常一般直接取消outline:none;
+
+```css
+outline : outline-color | outline-style | outline-width
+```
+
+#### 2.3 防止拖拽文本域 textarea
+
+```css
+resize:none;
+```
+
+![css](./img/css.png)
 
 
-## Day 10
+
+### 3 vertical-align 垂直对齐
+
+> 实现图片、表单、文字对齐
+
+- 有宽度的块级元素水平居中 margin: 0 auto;
+- 文字居中对齐 text-align: center;
+- vertical-align:middle; 只能针对**行内元素和行内块元素**有效果
+
+```css
+vertical-align: baseline | top | middle | bottom 
+```
 
 
-## Day 11
+
+### 4 溢出的文字隐藏...
+
+![white-space](./img/white-space.png)
+
+#### 4.1 white-space
+
+```css
+white-space : normal | nowrap;
+```
+
+#### 4.2 text-overflow
+
+```css
+text-overflow : clip | elipsis;
+```
+
+### 5 CSS精灵技术（sprite）
+
+> 主要针对背景图片
 
 
-## Day 12
 
+### 6 滑动门
 
-## Day 13
+> 为了让背景图片可以适配文字内容
 
+```html
+<li>
+		<a href="#">
+				<span>导航栏内容</span>
+		</a>
+</li>
+```
 
-## Day 14
+```css
+/* 1. a 是设置 左侧 背景（左门）
+   2. span 是设置 右侧 背景 （右门）
+   3. 因为整个导航栏都是链接，所以 a 要包含 span 
+   4. 滑动门，左右推拉，跟文字内容有关系，需要文字撑开盒子
+*/
+a {
+  	display:inline-block;
+  	height: 33px;
+  	background: url(images/to.png) no-repeat;
+  	padding-left: 15px;
+  	color: #fff;
+}
+
+a span {
+  	display:inline-block;
+  	height: 33px;
+  	right: 0;
+  	background: url(images/to.png) no-repeat;
+  	padding-right: 15px;
+}
+```

@@ -1,0 +1,14 @@
+jQuery
+bootstrap
+html5
+css3
+
+
+Node
+Gulp
+MongoDB
+Express
+Ajax
+Vue
+React
+Angular
